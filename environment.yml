@@ -3,8 +3,8 @@ dependencies:
   - python=3.9.*
   - conda=4.10.*
   - pip=21.3.*
-  - numpy=1.19.*
+  - numpy~=1.19.2
   - pylint=2.9.*
   - pip:
-    - tensorflow==2.6.*
-    - opencv-python==4.5.*
+    - tensorflow~=2.6.2
+    - opencv-python~=4.5.4
