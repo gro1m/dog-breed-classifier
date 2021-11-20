@@ -12,4 +12,7 @@ python -m build
 
 python3 -m pip install --upgrade twine
 
-python3 -m twine upload --repository testpypi dist/*
+name=`python read_config.py --key "name" | tail -1`
+version=`python read_config.py --key "version" | tail -1`
+
+python3 -m twine upload --repository testpypi dist/${name}-${version}*

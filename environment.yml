@@ -4,8 +4,7 @@ dependencies:
   - conda=4.10.*
   - pip=21.3.*
   - numpy=1.19.*
-  - conda-forge::opencv=4.5.*
   - pylint=2.9.*
   - pip:
     - tensorflow==2.7.*
-    - keras==2.7.*
+    - opencv-python==4.5.*
