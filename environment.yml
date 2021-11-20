@@ -2,7 +2,7 @@ name: dog-breed-classifier-env
 dependencies:
   - python=3.9.*
   - conda=4.10.*
-  - pip=21.2.*
+  - pip=21.3.*
   - numpy=1.19.*
   - conda-forge::opencv=4.5.*
   - pylint=2.9.*

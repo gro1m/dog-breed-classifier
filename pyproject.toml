@@ -2,8 +2,6 @@
 requires = [
     "setuptools>=42",
     "wheel",
-    "conda==4.10",
-    "pip==21.2",
-    "python==3.9"
+    "pip==21.3",
 ]
 build-backend = "setuptools.build_meta"
