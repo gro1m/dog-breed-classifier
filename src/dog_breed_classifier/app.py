@@ -1,4 +1,4 @@
-from utils import face_detector, dog_detector, Xception_predictbreed
+from dog_breed_classifier.utils import face_detector, dog_detector, Xception_predictbreed
 
 VOCALS = {"A", "E", "I", "O", "U"}
 
