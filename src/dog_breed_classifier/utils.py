@@ -1,34 +1,34 @@
 import os
-import tensorflow as tf
+import tensorflow
 import cv2
 import numpy as np
 
-with open("dognames.txt", "r") as fd:
+with open(os.path.join(os.path.dirname(__file__), "dognames.txt"), "r") as fd:
     dog_names = fd.read().splitlines()
 
 def extract_VGG16(tensor):
-	from tf.keras.applications.vgg16 import VGG16, preprocess_input
+	from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
 	return VGG16(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
 
 def extract_VGG19(tensor):
-	from tf.keras.applications.vgg19 import VGG19, preprocess_input
+	from tensorflow.keras.applications.vgg19 import VGG19, preprocess_input
 	return VGG19(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
 
 def extract_Resnet50(tensor):
-	from tf.keras.applications.resnet50 import ResNet50, preprocess_input
+	from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 	return ResNet50(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
 
 def extract_Xception(tensor):
-	from tf.keras.applications.xception import Xception, preprocess_input
+	from tensorflow.keras.applications.xception import Xception, preprocess_input
 	return Xception(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
 
 def extract_InceptionV3(tensor):
-	from tf.keras.applications.inception_v3 import InceptionV3, preprocess_input
+	from tensorflow.keras.applications.inception_v3 import InceptionV3, preprocess_input
 	return InceptionV3(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
 
 def path_to_tensor(img_path):
     # loads RGB image as PIL.Image.Image type
-    from tf.keras.preprocessing import image
+    from tensorflow.keras.preprocessing import image
     img = image.load_img(img_path, target_size=(224, 224))
     # convert PIL.Image.Image type to 3D tensor with shape (224, 224, 3)
     x = image.img_to_array(img)
@@ -36,7 +36,7 @@ def path_to_tensor(img_path):
     return np.expand_dims(x, axis=0)
 
 def Xception_predictbreed(img_path):
-    from tf.keras.models import load_model
+    from tensorflow.keras.models import load_model
     Xception_bottlenecks = extract_Xception(path_to_tensor(img_path))
     Xception_model = load_model('model/Xception.best_weights.hdf5')
     Xception_prediction  = Xception_model.predict(Xception_bottlenecks)
@@ -44,7 +44,7 @@ def Xception_predictbreed(img_path):
 
 def ResNet50_predict_labels(img_path):
     # define ResNet50 model
-    from tf.keras.applications.resnet50 import preprocess_input, ResNet50
+    from tensorflow.keras.applications.resnet50 import preprocess_input, ResNet50
     ResNet50_model = ResNet50(weights='imagenet')
     # returns prediction vector for image located at img_path
     img = preprocess_input(path_to_tensor(img_path))

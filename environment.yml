@@ -8,3 +8,4 @@ dependencies:
   - pip:
     - tensorflow~=2.6.2
     - opencv-python~=4.5.4
+    - pillow~=8.4.0
