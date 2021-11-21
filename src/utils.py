@@ -1,7 +1,7 @@
 import os
 import tensorflow as tf
-from keras.preprocessing import image
-from keras.models import load_model
+from tf.keras.preprocessing import image
+from tf.keras.models import load_model
 from tf.keras.applications.resnet50 import preprocess_input, decode_predictions, ResNet50
 import cv2
 import numpy as np
